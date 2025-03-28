@@ -1,0 +1,18 @@
+h3 {
+    font-weight: bold;}
+    .code-box {
+        background-color: #f0f0f0;  /* Color de fons gris clar */
+        border: 1px solid #ccc;     /* Vora lleugera */
+        padding: 10px;              /* Espai intern */
+        font-family: monospace;     /* Tipus de lletra monospace */
+        color: #333;                /* Color del text */
+    }
+    h4 {
+        font-weight: bold;}
+        .code-box {
+            background-color: #f0f0f0;  /* Color de fons gris clar */
+            border: 1px solid #ccc;     /* Vora lleugera */
+            padding: 10px;              /* Espai intern */
+            font-family: monospace;     /* Tipus de lletra monospace */
+            color: #333;                /* Color del text */
+        }

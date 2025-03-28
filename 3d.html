@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dades Tècniques</title>
+    <link rel="stylesheet" href="estilcodig.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+
+    <script>
+        function anarIndexGrup(event) {
+            event.preventDefault(); // Evita el comportament predeterminat de l'enllaç
+            window.location.href = 'indexgrupo.html';
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Dades Tècniques</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="anarIndexGrup(event);">Inici</a>
+    </nav>
+
+    <div class="container">
+        <h1>3D</h1>
+        <iframe src="https://docs.google.com/document/d/173v3P3DU7gv2SruJQGh2ulN-qGW3uZUiCXLJhsF-8sU/preview" 
+                width="800" height="600" style="border: 1px solid black;"></iframe>
+    </div>
+
+    <footer>
+        &copy; 2025 Dades Tècniques. Tots els drets reservats.
+    </footer>
+
+</body>
+</html>

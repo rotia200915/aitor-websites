@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web casa domotica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+    <script>
+        function goToDades() {
+            window.location.href = 'Dades.html';
+        }
+    </script>
+    <script>
+        function irserveis() {
+            window.location.href = 'serveis.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos a nuestra página web de nuestra casa domótica</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Inicio</a>
+        <a href="#contact"onclick="irserveis(); return false;">Serveis</a>
+        <a href="#dades" onclick="goToDades(); return false;">Dades Tècniques</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h2>Bienvenidos a nuestra paguina web de nuestra casa domotica</h2>
+    </div>
+
+    <div class="container" id="about">
+        <h2>Sobre nosotros</h2>
+        <p>Esta vivienda ha sido diseñada con el objetivo de ofrecer la máxima comodidad y seguridad a sus<br>
+           residentes. Con un enfoque integral en la protección, la casa cuenta con un sistema de seguridad de<br>
+           alto nivel, capaz de ser letal en situaciones extremas. Está equipada con metralletas automáticas para <br>
+           emergencias, sensores de movimiento que activan el sistema de seguridad y alarmas de incendios altamente sensibles.<br><br>
+
+           Además, el sistema de iluminación es de última tecnología, permitiendo el encendido de las luces<br>
+           mediante un simple aplauso. Asimismo, las ventanas y puertas, que son completamente automáticas,<br>
+           pueden ser controladas a través de un mando a distancia, el cual también permite activar o desactivar<br>
+           el sistema de seguridad según sea necesario, brindando así un control total y personalizado de la vivienda.
+
+        </p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contacto</h2>
+        <p>Si deseas ponerte en contacto conmigo, puedes enviarme un correo a: <a href="mailto:demanuelros.aitor@institutmariaespinalt.cat">demanuelros.aitor@institutmariaespinalt.cat</a></p>
+    </div>
+</body>
+</html>

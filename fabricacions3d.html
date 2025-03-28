@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estilcodig.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Tecnicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+     </style>
+     <script>
+         function irindexgrupo() {
+             window.location.href = 'indexgrupo.html';
+         }
+     </script>
+     <script>
+        function ircodigs() {
+            window.location.href = 'codigos.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Estos son nuestros datos
+        </h1>
+    </header>
+
+    <nav>
+        <a href="#home"onclick="irindexgrupo(); return false;">Inicio</a>
+        <a href="#about">Codigs</a>
+        <a href="#explicacio">Explicació de Codigs</a>
+        <a href="#contact">?=</a>
+    </nav>
+
+    <div class="container" id="about">
+        <h1>Codigs de Arduino</h1>
+        <h2>Codig 1</h2>
+        <pre><code>
+    #define SOUND_SENSOR A0   // Pin analógico del sensor de sonido
+    #define LED_PIN 11        // Pin donde está conectado el LED (palmadas)
+    #define BUTTON_PIN 12     // Pin del botón
+    #define LED_BUTTON_PIN 13 // Pin del LED del botón
+    #define BUZZER_PIN 8      // Nuevo pin para el zumbador
+    
+    
+    int clapCount = 0;        
+    unsigned long lastClap = 0;
+    const int clapDelay = 300; 
+    const int threshold = 300; 
+    
+    
+    bool ledState = false;     
+    bool buzzerState = false; // Estado de la alarma
+    unsigned long lastDebounceTime = 0;
+    const int debounceDelay = 50;
+    
+    
+    unsigned long lastBeepTime = 0;
+    bool beepState = false; // Controla el estado del "pip"
+    
+    
+    void setup() {
+      pinMode(LED_PIN, OUTPUT);
+      pinMode(LED_BUTTON_PIN, OUTPUT);
+      pinMode(BUZZER_PIN, OUTPUT);
+      pinMode(BUTTON_PIN, INPUT_PULLUP);
+      Serial.begin(9600);
+    }
+    
+    
+    void loop() {
+      int sonido = analogRead(SOUND_SENSOR);
+      unsigned long currentTime = millis();
+    
+    
+      // 🔊 Detectar palmadas (solo para encender/apagar LED, NO la alarma)
+      if (sonido > threshold) {
+          if (currentTime - lastClap < clapDelay) {
+              clapCount++;
+          } else {
+              clapCount = 1;
+          }
+    
+    
+          lastClap = currentTime;
+          Serial.println("Palmada detectada!");
+          delay(200);
+      }
+    
+    
+      if (clapCount == 2) { 
+          ledState = !ledState;
+          digitalWrite(LED_PIN, ledState);
+          Serial.println(ledState ? "LED Encendido!" : "LED Apagado!");
+          clapCount = 0;
+      }
+    
+    
+      // 🔘 Controlar la alarma con el botón
+      static bool lastButtonState = HIGH;
+      bool buttonState = digitalRead(BUTTON_PIN);
+    
+    
+      if (buttonState == LOW && lastButtonState == HIGH && (millis() - lastDebounceTime) > debounceDelay) {
+          buzzerState = !buzzerState; // Cambia el estado de la alarma
+          digitalWrite(LED_BUTTON_PIN, buzzerState);
+    
+    
+          if (!buzzerState) {
+              noTone(BUZZER_PIN);  // Si apagamos, detenemos el zumbador
+              Serial.println("Brunzidor Apagado!");
+          } else {
+              Serial.println("Brunzidor Encendido!");
+          }
+    
+    
+          lastDebounceTime = millis();
+      }
+      lastButtonState = buttonState;
+    
+    
+      // 🔊 Control de la alarma (solo si está activada por el botón)
+      if (buzzerState) {
+          if (millis() - lastBeepTime >= (beepState ? 150 : 100)) {
+              beepState = !beepState;
+              if (beepState) {
+                  tone(BUZZER_PIN, 2000); // Inicia el "pip"
+              } else {
+                  noTone(BUZZER_PIN); // Pausa entre "pips"
+              }
+              lastBeepTime = millis();
+          }
+      } else {
+          noTone(BUZZER_PIN);  // Asegura que el zumbador esté apagado cuando no debe sonar
+      }
+    }
+        </code></pre>
+        <h2>Códig 2</h2>
+        <pre><code>
+   CONTINUARA...
+        </code></pre>
+    </div>
+
+    <div class="container" id="explicacio">
+        <h1>Explicació Codig 1</h1>
+        <h3><strong>Definició de pins</strong></h3>
+        <p>
+         · SOUND_SENSOR (A0): Sensor de so connectat a un pin analògic.<br><br>
+
+            · LED_PIN (11): LED que s'encén i s'apaga amb aplaudiments.<br><br>
+            
+            · BUTTON_PIN (12): Botó físic per activar o desactivar l'alarma.<br><br>
+            
+            · LED_BUTTON_PIN (13): LED que indica si l'alarma està activada.<br><br>
+                        
+            · BUZZER_PIN (8): Brunzidor que emet sons d'alarma.</p><br><br>
+    <h3><strong>Variables i configuració inicial</strong></h3>
+    <p>clapCount: Compta els aplaudiments detectats.
+
+        lastClap: Registra el temps de l'últim aplaudiment.<br><br>
+        
+        clapDelay: Temps en mil·lisegons per diferenciar aplaudiments.<br><br>
+        
+        threshold: Llindar de detecció de so.<br><br>
+        
+        ledState: Estat del LED (encès o apagat).<br><br>
+        
+        buzzerState: Estat de l'alarma.<br><br>
+        
+        lastDebounceTime: Control de rebot del botó.<br><br>
+        
+        debounceDelay: Temps mínim per evitar rebots del botó.<br><br>
+        
+        lastBeepTime: Temps de l'última emissió del brunzidor.<br><br>
+        
+        beepState: Estat del "pip" de l'alarma.</p><br><br>
+        <h3><strong>setup() - Configuració inicial</strong></h3>
+        <p>
+            · Es configuren els pins com a entrada o sortida.<br><br>
+
+            · S'inicia la comunicació sèrie per a la depuració.<br><br>            
+        </p>
+        <h3><strong>loop() - Funció principal</strong></h3>
+        <h4><strong>Detecció d'aplaudiments per encendre/apagar el LED</strong></h4>
+        <p>
+            Es llegeix el valor del sensor de so.<br><br>
+
+            Si el so supera el llindar (threshold), es detecta un aplaudiment.<br><br>
+            
+            Si dos aplaudiments ocorren en el temps establert (clapDelay), es canvia l'estat del LED (ledState).<br><br>
+            
+            Es mostra un missatge al monitor sèrie.</p><br>
+            <h4><strong>Control de l'alarma amb el botó</strong></h4>
+            <p>
+                Es llegeix l'estat del botó (BUTTON_PIN).<br><br>
+
+                Si es prem (amb control de rebot), s'activa/desactiva l'alarma (buzzerState).<br><br>
+                
+                S'encén o s'apaga el LED indicador del botó.<br><br>
+                
+                Si l'alarma es desactiva, es deté el brunzidor.<br></p>
+                <h4><strong>Generació del so de l'alarma</strong></h4>
+                <p>
+                    Si l'alarma està activada, el brunzidor emet un "pip" intermitent.<br><br>
+
+                    Es fa servir millis() per alternar entre encendre i apagar el so amb temps de 100 ms i 150 ms.<br><br>
+                    
+                    Si l'alarma està apagada, el brunzidor es manté silenciat.<br><br>
+                                        </p>
+                <h3><strong>Resum</strong></h3>
+                <p>Aquest codi permet encendre i apagar un LED amb dos aplaudiments i activar o<br> desactivar una alarma amb un botó. L'alarma emet un so intermitent quan està<br> activada i es manté en silenci quan està apagada.</p>
+
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contacto</h2>
+        <p>Si deseas ponerte en contacto conmigo, puedes enviarme un correo a: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p>
+    </div>
+
+    
+</div>
+
+<!-- Enlace para volver a la página principal -->
+<a href="index.html">Volver a la Página Principal</a>
+</div>
+
+</body>
+</html>

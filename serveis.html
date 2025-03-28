@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estilcodig.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Els nostres serveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .service {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+        }
+
+    </style>
+    <script>
+        function irindexgrupo() {
+            window.location.href = 'indexgrupo.html';
+        }
+        function ircodigs() {
+            window.location.href = 'codigos.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Aquest son els nostres serveis</h1>
+    </header>
+
+    <nav>
+        <a href="#home" onclick="irindexgrupo(); return false;">Inicio</a>
+    </nav>
+
+    <div class="container">
+        <h1>Nuestros Servicios</h1>
+        
+        <div class="service">
+            <h2>📡 Sistemas de Videovigilancia</h2>
+            <p>Protege lo que más importa con nuestros sistemas avanzados de videovigilancia. Cámaras de alta resolución, visión nocturna y monitoreo en tiempo real desde cualquier dispositivo.</p>
+        </div>
+
+        <div class="service">
+            <h2>🔐 Control de Acceso</h2>
+            <p>Evita accesos no autorizados con nuestras soluciones de control de acceso. Tarjetas RFID, biometría y cerraduras inteligentes para garantizar la seguridad de tu empresa o residencia.</p>
+        </div>
+
+        <div class="service">
+            <h2>🏠 Alarmas y Sensores de Seguridad</h2>
+            <p>Detecta cualquier intrusión con nuestras alarmas de última generación. Sensores de movimiento, detectores de humo y sistemas de respuesta inmediata para una protección total.</p>
+        </div>
+
+        <div class="service">
+            <h2>🌐 Ciberseguridad Empresarial</h2>
+            <p>Protege la información de tu empresa con nuestros servicios de ciberseguridad. Firewall, antivirus, auditorías de seguridad y protección contra ataques cibernéticos.</p>
+        </div>
+
+        <div class="service">
+            <h2>🛠️ Mantenimiento y Soporte Técnico</h2>
+            <p>Nos aseguramos de que tus sistemas de seguridad funcionen sin interrupciones. Ofrecemos mantenimiento preventivo y correctivo con asistencia técnica especializada.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Empresa de Seguridad. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
